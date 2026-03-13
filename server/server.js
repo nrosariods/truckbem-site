@@ -112,11 +112,14 @@ app.post('/api/contact', contactRateLimit, async (req, res) => {
     const secure = process.env.SMTP_SECURE === 'true' || port === 465;
 
     const transporter = nodemailer.createTransport({
-      host,
-      port,
-      secure,
-      auth: { user, pass }
-    });
+  host,
+  port,
+  secure,
+  auth: { user, pass },
+  tls: {
+    rejectUnauthorized: false
+  }
+});
 
     const info = await transporter.sendMail({
       from,
