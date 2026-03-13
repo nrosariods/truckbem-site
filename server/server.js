@@ -3,7 +3,8 @@ const express = require('express');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const cors = require('cors');
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
+const resend = new Resend(process.env.RESEND_API_KEY);
 require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') });
 
 const app = express();
@@ -104,31 +105,13 @@ app.post('/api/contact', contactRateLimit, async (req, res) => {
       '</body></html>'
     ].join('');
 
-    const host = requireEnv('SMTP_HOST');
-    const port = Number(requireEnv('SMTP_PORT'));
-    const user = requireEnv('SMTP_USER');
-    const pass = requireEnv('SMTP_PASS');
-    const from = requireEnv('MAIL_FROM');
-    const secure = process.env.SMTP_SECURE === 'true' || port === 465;
-
-    const transporter = nodemailer.createTransport({
-  host,
-  port,
-  secure,
-  auth: { user, pass },
-  tls: {
-    rejectUnauthorized: false
-  }
+await resend.emails.send({
+  from: 'Site TruckBem <onboarding@resend.dev>',
+  to: to,
+  subject: subject,
+  html: html,
+  reply_to: email
 });
-
-    const info = await transporter.sendMail({
-      from,
-      to,
-      subject,
-      text,
-      html,
-      replyTo: email
-    });
 
     console.log('E-mail enviado:', { messageId: info.messageId, to });
     return res.json({ ok: true });
