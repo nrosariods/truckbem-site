@@ -105,7 +105,7 @@ app.post('/api/contact', contactRateLimit, async (req, res) => {
       '</body></html>'
     ].join('');
 
-await resend.emails.send({
+const response = await resend.emails.send({
   from: 'Site TruckBem <onboarding@resend.dev>',
   to: to,
   subject: subject,
@@ -113,7 +113,7 @@ await resend.emails.send({
   reply_to: email
 });
 
-    console.log('E-mail enviado:', { messageId: info.messageId, to });
+console.log('E-mail enviado:', response);
     return res.json({ ok: true });
   } catch (err) {
     console.error('Erro ao enviar e-mail:', err.message || err);
