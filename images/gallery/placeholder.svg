@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="875" viewBox="0 0 1400 875" role="img" aria-label="Foto de exemplo da galeria">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#001B3A" />
+      <stop offset="100%" stop-color="#001024" />
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="875" fill="url(#g)" />
+  <g opacity="0.9" fill="none" stroke="#82D11C" stroke-width="3">
+    <rect x="80" y="80" width="1240" height="715" rx="20" />
+    <path d="M220 650l220-240 170 170 170-220 240 290" />
+    <circle cx="490" cy="350" r="46" />
+  </g>
+  <text x="700" y="220" text-anchor="middle" fill="#ffffff" font-family="Barlow, Arial, sans-serif" font-size="40" font-weight="800">
+    Galeria · Placeholder
+  </text>
+  <text x="700" y="272" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Barlow, Arial, sans-serif" font-size="20">
+    Coloque suas fotos em /images/gallery
+  </text>
+</svg>

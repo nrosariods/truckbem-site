@@ -1,0 +1,11 @@
+# Ambiente e segredos
+.env
+.env.local
+.env.*.local
+
+# Node
+node_modules/
+
+# Logs e sistema
+*.log
+.DS_Store

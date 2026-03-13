@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="220" viewBox="0 0 420 220" role="img" aria-label="Logo de exemplo">
+  <rect width="420" height="220" fill="#0b1b33" />
+  <rect x="14" y="14" width="392" height="192" rx="16" fill="none" stroke="rgba(130,209,28,0.45)" stroke-width="3" />
+  <text x="210" y="118" text-anchor="middle" fill="rgba(255,255,255,0.75)" font-family="Barlow Condensed, Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="1.5">
+    LOGO
+  </text>
+</svg>
