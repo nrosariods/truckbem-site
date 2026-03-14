@@ -1,11 +1,13 @@
 const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') });
+
 const express = require('express');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const cors = require('cors');
 const { Resend } = require('resend');
+
 const resend = new Resend(process.env.RESEND_API_KEY);
-require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') });
 
 const app = express();
 app.set('trust proxy', 1);
