@@ -106,7 +106,7 @@ app.post('/api/contact', contactRateLimit, async (req, res) => {
     ].join('');
 
 const response = await resend.emails.send({
-  from: 'Site TruckBem <onboarding@resend.dev>',
+  from: 'Site TruckBem <site@truckbem.com>',
   to: to,
   subject: subject,
   html: html,
