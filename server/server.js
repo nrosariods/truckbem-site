@@ -100,13 +100,13 @@ app.post('/api/contact', contactRateLimit, async (req, res) => {
       '<p><strong>Mensagem:</strong></p>',
       `<p>${escapeHtml(message).replace(/\n/g, '<br>')}</p>`,
       '<hr>',
-      '<p>Mensagem enviada pelo formulário do site<br>https://truckbem.com.br</p>',
+      '<p>Mensagem enviada pelo formulário do site<br>https://truckbem.com</p>',
       '</td></tr></table>',
       '</body></html>'
     ].join('');
 
 const response = await resend.emails.send({
-  from: 'Site TruckBem <contato@truckbem.com.br>',
+  from: 'Site TruckBem <site@truckbem.com>',
   to: to,
   subject: subject,
   html: html,
