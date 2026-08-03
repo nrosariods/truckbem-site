@@ -1,6 +1,6 @@
 # Site TruckBem + Formulário com envio direto (SMTP)
 
-Este projeto é um site estático (`truckbem.html`) servido por um backend Node.js (Express) para permitir que o formulário envie e-mails **automaticamente**, sem abrir o provedor do usuário.
+Este projeto é um site estático (`index.html`) servido por um backend Node.js (Express) para permitir que o formulário envie e-mails **automaticamente**, sem abrir o provedor do usuário.
 
 ## Configuração
 

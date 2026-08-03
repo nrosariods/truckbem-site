@@ -8,7 +8,7 @@ Use este checklist para garantir que tudo funciona antes e depois de publicar.
 
 | Item | Status |
 |------|--------|
-| Página principal (`truckbem.html`) | ✅ Servida em `/` pelo Node |
+| Página principal (`index.html`) | ✅ Servida em `/` pelo Node |
 | Formulário de contato (nome, email, telefone, empresa, mensagem) | ✅ Envia via POST para `/api/contact` |
 | Validação (campos obrigatórios) | ✅ No front e no backend |
 | Máscara de telefone (XX) XXXXX-XXXX | ✅ Aplicada no input |

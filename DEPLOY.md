@@ -35,7 +35,7 @@ Recomendação para começar: **Render** (grátis e rápido de configurar).
 1. Crie uma conta em [render.com](https://render.com).
 2. **New → Web Service**.
 3. Conecte o repositório Git do projeto (GitHub/GitLab) **ou** faça upload do projeto (se Render permitir).
-   - Se usar Git: faça push do seu projeto (incluindo `server/`, `package.json`, `truckbem.html`, `images/`, etc.).
+   - Se usar Git: faça push do seu projeto (incluindo `server/`, `package.json`, `index.html`, `images/`, etc.).
 4. Configure o serviço:
    - **Build Command:** `npm install`
    - **Start Command:** `npm start`

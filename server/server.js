@@ -17,7 +17,7 @@ app.use(cors({
 }));
 app.use(express.json({ limit: '250kb' }));
 
-// Serve site estático (truckbem.html, imagens, etc.)
+// Serve site estático (index.html, imagens, etc.)
 app.use(express.static(path.resolve(__dirname, '..')));
 
 // Rate limit: 5 envios por IP a cada 24h (apenas para /api/contact)
@@ -136,7 +136,7 @@ app.post('/api/contact', contactRateLimit, async (req, res) => {
 
 // Entrada padrão (para hospedagem simples)
 app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '..', 'truckbem.html'));
+  res.sendFile(path.resolve(__dirname, '..', 'index.html'));
 });
 
 if (require.main === module) {
