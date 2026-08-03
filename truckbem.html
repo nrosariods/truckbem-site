@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#001B3A">
+<title>TruckBem Transportes | Logística Inteligente</title>
+<meta name="description" content="Excelência em transporte, rastreamento e atendimento. Soluções logísticas para acelerar sua operação nas regiões Sul e Sudeste.">
+<link rel="canonical" href="https://truckbem.com">
+<meta property="og:title" content="TruckBem Transportes | Logística Inteligente">
+<meta property="og:description" content="Excelência em transporte, rastreamento e atendimento. Soluções logísticas para acelerar sua operação nas regiões Sul e Sudeste.">
+<meta property="og:image" content="https://truckbem.com/images/logo.svg">
+<meta property="og:url" content="https://truckbem.com">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TruckBem Transportes | Logística Inteligente">
+<meta name="twitter:description" content="Excelência em transporte, rastreamento e atendimento. Soluções logísticas para acelerar sua operação nas regiões Sul e Sudeste.">
+<meta name="twitter:image" content="https://truckbem.com/images/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===================== RESET & BASE ===================== */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:'Barlow',sans-serif;
+  background:#f5f4f0;
+  color:#1a1a1a;
+  overflow-x:hidden;
+  cursor:none;
+}
+
+/* ===================== CUSTOM CURSOR ===================== */
+.cursor{
+  position:fixed;width:10px;height:10px;background:#82D11C;border-radius:50%;
+  pointer-events:none;z-index:9999;transform:translate(-50%,-50%);
+  transition:transform 0.1s,width 0.2s,height 0.2s,opacity 0.2s;
+}
+.cursor-ring{
+  position:fixed;width:36px;height:36px;border:1.5px solid rgba(130,209,28,0.5);
+  border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);
+  transition:all 0.12s ease;
+}
+.cursor.hover{width:16px;height:16px;background:#82D11C;}
+.cursor-ring.hover{width:50px;height:50px;border-color:#82D11C;opacity:0.6;}
+
+/* ===================== CSS VARIABLES ===================== */
+:root{
+  --navy:#001B3A;
+  --green:#82D11C;
+  --green-dark:#6ab517;
+  --cream:#f5f4f0;
+  --white:#ffffff;
+  --text:#1a1a1a;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --card:#ffffff;
+  --shadow:0 4px 40px rgba(0,27,58,0.08);
+}
+
+/* ===================== SCROLLBAR ===================== */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--navy)}
+::-webkit-scrollbar-thumb{background:var(--green);border-radius:2px}
+
+/* ===================== NAVBAR ===================== */
+#navbar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  transition:all 0.4s ease;
+  padding:0 0;
+}
+.nav-inner{
+  max-width:1280px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 40px;height:88px;
+  transition:height 0.3s;
+}
+#navbar.scrolled .nav-inner{height:68px;}
+#navbar.scrolled{background:rgba(0,27,58,0.97);backdrop-filter:blur(20px);box-shadow:0 2px 40px rgba(0,0,0,0.3);}
+#navbar.top{background:transparent;}
+
+.nav-logo{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:22px;font-weight:800;letter-spacing:0.02em;
+  text-decoration:none;color:white;
+  display:flex;align-items:center;gap:10px;
+}
+.nav-logo-img{
+  display:block;height:40px;width:auto;max-width:180px;
+  object-fit:contain;object-position:left center;
+}
+.nav-logo-text{display:inline;}
+.nav-logo .accent{color:var(--green);}
+.nav-logo .light{font-weight:300;letter-spacing:0.05em;}
+
+nav.desktop{display:flex;align-items:center;gap:4px;}
+nav.desktop a{
+  font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;
+  color:rgba(255,255,255,0.75);text-decoration:none;
+  padding:10px 16px;position:relative;transition:color 0.2s;
+}
+nav.desktop a::after{
+  content:'';position:absolute;bottom:6px;left:50%;transform:translateX(-50%);
+  width:0;height:1.5px;background:var(--green);transition:width 0.3s;
+}
+nav.desktop a:hover{color:white;}
+nav.desktop a:hover::after{width:60%;}
+
+.nav-cta{
+  background:var(--green);color:var(--navy)!important;
+  padding:10px 22px!important;border-radius:6px;
+  font-weight:700!important;transition:all 0.2s!important;
+}
+.nav-cta:hover{background:#96e520!important;box-shadow:0 0 24px rgba(130,209,28,0.35);}
+.nav-cta::after{display:none!important;}
+
+.burger{
+  display:none;flex-direction:column;gap:5px;cursor:none;
+  background:none;border:none;padding:8px;
+}
+.burger span{width:24px;height:2px;background:white;transition:all 0.3s;display:block;}
+
+.mobile-menu{
+  position:fixed;inset:0;background:var(--navy);z-index:99;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;
+  opacity:0;pointer-events:none;transition:opacity 0.3s;
+}
+.mobile-menu.open{opacity:1;pointer-events:all;}
+.mobile-menu a{
+  font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:700;
+  color:white;text-decoration:none;letter-spacing:0.05em;
+  transition:color 0.2s;
+}
+.mobile-menu a:hover{color:var(--green);}
+.mobile-close{
+  position:absolute;top:28px;right:32px;background:none;border:none;
+  color:white;font-size:28px;cursor:none;
+}
+
+/* ===================== HERO ===================== */
+#hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;
+  overflow:hidden;background:var(--navy);
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background-image:none;
+  background-size:cover;background-position:center;
+  opacity:0.35;
+  transform:scale(1.05);
+  animation:heroZoom 12s ease-in-out infinite alternate;
+}
+/* ===================== HERO VIDEO ===================== */
+.hero-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;
+  pointer-events:none;
+}
+.hero-video-fallback{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;
+  pointer-events:none;
+}
+@keyframes heroZoom{from{transform:scale(1.05)}to{transform:scale(1.12)}}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(105deg,rgba(0,27,58,0.95) 0%,rgba(0,27,58,0.75) 55%,rgba(0,27,58,0.3) 100%);
+  z-index:1;
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(130,209,28,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(130,209,28,0.04) 1px,transparent 1px);
+  background-size:60px 60px;
+  z-index:1;
+}
+.hero-content{
+  position:relative;z-index:2;
+  max-width:1280px;margin:0 auto;padding:0 40px;
+  width:100%;padding-top:88px;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--green);border:1px solid rgba(130,209,28,0.3);
+  padding:6px 14px;border-radius:100px;margin-bottom:28px;
+  opacity:0;animation:fadeUp 0.8s 0.2s forwards;
+}
+.hero-tag::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;}
+h1.hero-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(52px,7vw,96px);
+  font-weight:900;line-height:0.95;
+  letter-spacing:-0.01em;text-transform:uppercase;
+  color:white;max-width:720px;
+  opacity:0;animation:fadeUp 0.9s 0.35s forwards;
+}
+h1.hero-title .line-green{color:var(--green);display:block;}
+.hero-sub{
+  margin-top:24px;max-width:480px;
+  font-size:16px;font-weight:300;line-height:1.7;
+  color:rgba(255,255,255,0.65);
+  opacity:0;animation:fadeUp 0.9s 0.5s forwards;
+}
+.hero-actions{
+  margin-top:40px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  opacity:0;animation:fadeUp 0.9s 0.65s forwards;
+}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--green);color:var(--navy);
+  font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;
+  letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;
+  padding:16px 32px;border-radius:6px;border:none;cursor:none;
+  transition:all 0.25s;
+}
+.btn-primary:hover{background:#96e520;box-shadow:0 0 40px rgba(130,209,28,0.4);transform:translateY(-1px);}
+.btn-primary svg{transition:transform 0.2s;}
+.btn-primary:hover svg{transform:translateX(4px);}
+
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  color:white;font-size:14px;font-weight:500;letter-spacing:0.05em;
+  text-decoration:none;padding:16px 0;transition:color 0.2s;
+  background:none;border:none;cursor:none;
+}
+.btn-ghost:hover{color:var(--green);}
+
+.hero-stats{
+  display:flex;gap:48px;margin-top:64px;
+  opacity:0;animation:fadeUp 0.9s 0.8s forwards;
+}
+.stat-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:40px;font-weight:900;color:var(--green);
+  line-height:1;letter-spacing:-0.02em;
+}
+.stat-label{font-size:12px;color:rgba(255,255,255,0.5);margin-top:4px;letter-spacing:0.05em;text-transform:uppercase;}
+.stat-divider{width:1px;background:rgba(255,255,255,0.1);align-self:stretch;}
+
+.hero-scroll{
+  position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  color:rgba(255,255,255,0.4);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;
+  opacity:0;animation:fadeIn 1s 1.2s forwards;
+}
+.scroll-line{
+  width:1px;height:60px;background:linear-gradient(to bottom,rgba(130,209,28,0.6),transparent);
+  animation:scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse{0%,100%{opacity:0.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.2)}}
+
+/* ===================== SECTION COMMONS ===================== */
+section{padding:100px 0;}
+.container{max-width:1280px;margin:0 auto;padding:0 40px;}
+
+.section-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--green);
+  margin-bottom:16px;
+}
+.section-tag::before{content:'';width:20px;height:1px;background:var(--green);}
+
+h2.section-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(36px,4.5vw,58px);
+  font-weight:800;line-height:1;letter-spacing:-0.01em;text-transform:uppercase;
+  margin-bottom:20px;
+}
+h2.section-title .accent{color:var(--green);}
+
+/* ===================== SERVICES ===================== */
+#servicos{background:var(--cream);}
+.services-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:2px;margin-top:56px;
+  border:2px solid var(--navy);border-radius:12px;overflow:hidden;
+}
+.service-card{
+  background:var(--white);padding:40px 36px;
+  border-right:2px solid #e8e8e2;
+  position:relative;overflow:hidden;
+  transition:all 0.35s;
+}
+.service-card:nth-child(4n){border-right:none;}
+.service-card::before{
+  content:'';position:absolute;inset:0;
+  background:var(--navy);transform:translateY(101%);
+  transition:transform 0.4s cubic-bezier(0.16,1,0.3,1);
+  z-index:0;
+}
+.service-card:hover::before{transform:translateY(0);}
+.service-card-inner{position:relative;z-index:1;}
+.service-num{
+  font-family:'Barlow Condensed',sans-serif;font-size:60px;font-weight:900;
+  color:rgba(0,0,0,0.06);line-height:1;margin-bottom:20px;
+  transition:color 0.35s;
+  user-select:none;
+}
+.service-card:hover .service-num{color:rgba(255,255,255,0.08);}
+.service-icon{
+  width:48px;height:48px;background:rgba(130,209,28,0.1);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;color:var(--green);transition:all 0.35s;
+}
+.service-card:hover .service-icon{background:var(--green);color:var(--navy);}
+.service-card h3{
+  font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.02em;margin-bottom:12px;
+  color:var(--navy);transition:color 0.35s;
+}
+.service-card:hover h3{color:white;}
+.service-card p{font-size:14px;line-height:1.75;color:var(--muted);transition:color 0.35s;}
+.service-card:hover p{color:rgba(255,255,255,0.65);}
+.service-arrow{
+  margin-top:28px;display:flex;align-items:center;gap:6px;
+  font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--green);transition:gap 0.2s;
+}
+.service-card:hover .service-arrow{gap:10px;}
+
+/* ===================== FLEET ===================== */
+#frota{background:var(--navy);position:relative;overflow:hidden;}
+#frota::before{
+  content:'';position:absolute;top:-200px;right:-200px;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(130,209,28,0.08),transparent 70%);
+  pointer-events:none;
+}
+.fleet-header{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:56px;flex-wrap:wrap;}
+.fleet-header h2{color:white;}
+.fleet-header h2 .accent{color:var(--green);}
+.fleet-sub{max-width:400px;font-size:15px;line-height:1.7;color:rgba(255,255,255,0.5);}
+.fleet-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:3px;}
+@media(min-width:768px){.fleet-grid{grid-template-columns:repeat(4,1fr);}}
+.fleet-card{
+  position:relative;overflow:hidden;aspect-ratio:3/4;
+  background:#0a1628;
+}
+.fleet-card img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 0.6s cubic-bezier(0.16,1,0.3,1),opacity 0.4s;
+  opacity:0.7;
+}
+.fleet-card:hover img{transform:scale(1.06);opacity:0.5;}
+.fleet-card-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,27,58,0.95) 0%,transparent 50%);
+  display:flex;flex-direction:column;justify-content:flex-end;padding:24px;
+}
+.fleet-card-tag{
+  font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:0.18em;text-transform:uppercase;color:var(--green);
+  margin-bottom:6px;
+}
+.fleet-card h3{
+  font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;
+  text-transform:uppercase;color:white;margin-bottom:6px;
+}
+.fleet-card p{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.5;}
+.fleet-gps{
+  margin-top:10px;display:inline-flex;align-items:center;gap:5px;
+  font-size:11px;color:var(--green);font-weight:500;
+}
+
+/* ===================== STATS BAND ===================== */
+#stats{background:var(--green);padding:0;}
+.stats-band{
+  display:flex;align-items:stretch;
+  max-width:100%;overflow:hidden;
+}
+.stats-band-item{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:48px 24px;border-right:1px solid rgba(0,27,58,0.15);
+  min-width:0;
+}
+.stats-band-item:last-child{border-right:none;}
+.stats-band-num{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(48px,5vw,72px);font-weight:900;
+  color:var(--navy);line-height:1;letter-spacing:-0.02em;
+}
+.stats-band-label{
+  font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+  color:rgba(0,27,58,0.6);margin-top:6px;text-align:center;
+}
+
+/* ===================== FACILITIES ===================== */
+#instalacoes{background:var(--cream);}
+.facilities-layout{
+  display:grid;grid-template-columns:1fr 1fr;gap:3px;
+  margin-top:56px;border-radius:12px;overflow:hidden;
+  border:2px solid rgba(0,27,58,0.1);
+}
+@media(max-width:900px){.facilities-layout{grid-template-columns:1fr;}}
+.map-wrap{position:relative;min-height:480px;}
+.map-wrap iframe{width:100%;height:100%;border:0;display:block;min-height:480px;}
+.facility-info{
+  background:var(--navy);padding:52px 48px;
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.facility-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(130,209,28,0.1);border:1px solid rgba(130,209,28,0.3);
+  color:var(--green);font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;
+  padding:6px 14px;border-radius:100px;margin-bottom:28px;width:fit-content;
+}
+.facility-info h3{
+  font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;
+  text-transform:uppercase;color:white;margin-bottom:8px;
+}
+.facility-addr{font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:28px;line-height:1.6;}
+.facility-desc{font-size:14px;line-height:1.8;color:rgba(255,255,255,0.6);margin-bottom:32px;}
+.facility-specs{display:flex;flex-direction:column;gap:12px;margin-bottom:36px;}
+.spec-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.07);
+}
+.spec-label{font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:0.05em;}
+.spec-val{
+  font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;
+  color:var(--green);letter-spacing:0.02em;
+}
+.gallery-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--green);color:var(--navy);
+  font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;
+  padding:14px 28px;border-radius:6px;border:none;cursor:none;
+  transition:all 0.25s;
+}
+.gallery-btn:hover{background:#96e520;box-shadow:0 0 30px rgba(130,209,28,0.3);}
+
+/* ===================== CLIENTS ===================== */
+#clientes{background:var(--navy);overflow:hidden;}
+.clients-header{text-align:center;margin-bottom:56px;}
+.clients-header h2{color:white;}
+.clients-header p{font-size:15px;color:rgba(255,255,255,0.45);max-width:580px;margin:16px auto 0;line-height:1.7;}
+.marquee-wrap{position:relative;}
+.marquee-fade-l{position:absolute;left:0;top:0;bottom:0;width:120px;background:linear-gradient(to right,var(--navy),transparent);z-index:2;pointer-events:none;}
+.marquee-fade-r{position:absolute;right:0;top:0;bottom:0;width:120px;background:linear-gradient(to left,var(--navy),transparent);z-index:2;pointer-events:none;}
+.marquee-track{display:flex;gap:20px;width:max-content;animation:marquee 28s linear infinite;}
+.marquee-track:hover{animation-play-state:paused;}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.client-card{
+  flex-shrink:0;width:180px;height:180px;
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:10px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  padding:20px;transition:all 0.3s;
+}
+.client-card:hover{
+  background:rgba(255,255,255,0.08);border-color:rgba(130,209,28,0.3);
+  box-shadow:0 0 30px rgba(130,209,28,0.1);
+}
+.client-card img{max-width:120px;max-height:80px;object-fit:contain;opacity:0.85;transition:opacity 0.3s,transform 0.3s;}
+.client-card:hover img{opacity:1;transform:scale(1.03);}
+.client-name{font-size:11px;color:rgba(255,255,255,0.3);letter-spacing:0.08em;text-transform:uppercase;transition:color 0.3s;}
+.client-card:hover .client-name{color:var(--green);}
+
+/* ===================== CONTACT ===================== */
+#contato{background:var(--cream);}
+.contact-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:3px;
+  margin-top:56px;border-radius:12px;overflow:hidden;
+  border:2px solid rgba(0,27,58,0.1);
+}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+.contact-form-wrap{background:white;padding:52px 48px;}
+.contact-form-wrap h3{
+  font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;
+  text-transform:uppercase;color:var(--navy);margin-bottom:6px;
+}
+.contact-form-wrap p{font-size:14px;color:var(--muted);margin-bottom:36px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.field{position:relative;margin-bottom:16px;}
+.field input,.field textarea{
+  width:100%;background:#f8f8f6;border:1.5px solid #e5e5e0;
+  border-radius:6px;padding:22px 16px 10px;
+  font-family:'Barlow',sans-serif;font-size:14px;color:var(--text);
+  outline:none;transition:border-color 0.2s,box-shadow 0.2s;
+  resize:none;
+}
+.field input:focus,.field textarea:focus{
+  border-color:var(--green);box-shadow:0 0 0 3px rgba(130,209,28,0.12);
+  background:white;
+}
+.field label{
+  position:absolute;left:16px;top:16px;
+  font-size:13px;color:var(--muted);
+  transition:all 0.2s;pointer-events:none;
+}
+.field input:focus ~ label,
+.field input:not(:placeholder-shown) ~ label,
+.field textarea:focus ~ label,
+.field textarea:not(:placeholder-shown) ~ label{
+  top:7px;font-size:10px;color:var(--green);letter-spacing:0.08em;text-transform:uppercase;font-weight:600;
+}
+.submit-btn{
+  width:100%;display:flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--navy);color:white;
+  font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;
+  padding:18px;border-radius:6px;border:none;cursor:none;
+  transition:all 0.25s;margin-top:8px;
+}
+.submit-btn:hover{background:#00275a;box-shadow:0 8px 32px rgba(0,27,58,0.25);}
+.submit-btn:disabled{opacity:0.5;}
+
+.contact-info-wrap{background:var(--navy);padding:52px 48px;display:flex;flex-direction:column;gap:32px;}
+.contact-brand{
+  font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;color:white;
+}
+.contact-logo-img{
+  display:block;height:40px;width:auto;max-width:200px;object-fit:contain;object-position:left center;
+}
+.contact-brand .accent{color:var(--green);}
+.contact-tagline{font-size:13px;color:rgba(255,255,255,0.35);margin-top:8px;}
+.info-items{display:flex;flex-direction:column;gap:20px;}
+.info-item{display:flex;align-items:flex-start;gap:14px;}
+.info-icon{
+  width:38px;height:38px;border-radius:7px;
+  background:rgba(130,209,28,0.1);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--green);flex-shrink:0;margin-top:2px;
+}
+.info-label{font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:3px;}
+.info-value{font-size:13px;color:white;line-height:1.5;}
+.info-value a{color:white;text-decoration:none;transition:color 0.2s;}
+.info-value a:hover{color:var(--green);}
+
+.wa-card{
+  display:flex;align-items:center;gap:14px;
+  background:rgba(130,209,28,0.07);border:1px solid rgba(130,209,28,0.2);
+  border-radius:8px;padding:18px 20px;
+  text-decoration:none;transition:all 0.25s;
+}
+.wa-card:hover{background:rgba(130,209,28,0.12);border-color:rgba(130,209,28,0.4);}
+.wa-icon{
+  width:42px;height:42px;background:var(--green);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--navy);flex-shrink:0;
+}
+.wa-text p{font-size:14px;font-weight:600;color:white;}
+.wa-text span{font-size:12px;color:rgba(255,255,255,0.45);}
+
+/* ===================== SUCCESS MODAL ===================== */
+.modal-bg{
+  position:fixed;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(8px);
+  z-index:200;display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity 0.3s;padding:24px;
+}
+.modal-bg.open{opacity:1;pointer-events:all;}
+.modal-box{
+  background:white;border-radius:16px;padding:48px 40px;
+  max-width:440px;width:100%;text-align:center;
+  transform:scale(0.9);transition:transform 0.3s;box-shadow:0 32px 80px rgba(0,0,0,0.3);
+}
+.modal-bg.open .modal-box{transform:scale(1);}
+.modal-icon{
+  width:72px;height:72px;background:rgba(130,209,28,0.1);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;margin:0 auto 20px;
+}
+.modal-box h3{
+  font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;
+  text-transform:uppercase;color:var(--navy);margin-bottom:8px;
+}
+.modal-box p{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:28px;}
+.modal-close-btn{
+  background:var(--green);color:var(--navy);
+  font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;
+  padding:14px 36px;border-radius:6px;border:none;cursor:none;
+  transition:all 0.2s;
+}
+.modal-close-btn:hover{background:#96e520;}
+
+/* ===================== GALLERY MODAL ===================== */
+.gallery-modal{
+  position:fixed;inset:0;background:rgba(0,15,30,0.92);backdrop-filter:blur(12px);
+  z-index:201;display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity 0.3s;padding:24px;
+}
+.gallery-modal.open{opacity:1;pointer-events:all;}
+.gallery-inner{max-width:860px;width:100%;position:relative;}
+.gallery-close{
+  position:absolute;top:-48px;right:0;
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);
+  color:white;width:36px;height:36px;border-radius:50%;
+  font-size:18px;cursor:none;border:none;display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s;
+}
+.gallery-close:hover{background:rgba(255,255,255,0.2);}
+.gallery-main{
+  position:relative;aspect-ratio:16/10;width:100%;
+  background:#0a1628;border-radius:10px;overflow:hidden;
+}
+.gallery-main img{width:100%;height:100%;object-fit:contain;display:none;}
+.gallery-main img.active{display:block;}
+.gallery-nav{
+  position:absolute;top:50%;transform:translateY(-50%);
+  background:rgba(0,27,58,0.6);border:none;color:white;
+  width:40px;height:40px;border-radius:50%;cursor:none;
+  display:flex;align-items:center;justify-content:center;
+  transition:background 0.2s;
+}
+.gallery-nav:hover{background:rgba(0,27,58,0.9);}
+.gallery-prev{left:12px;}
+.gallery-next{right:12px;}
+.gallery-counter{
+  position:absolute;bottom:12px;left:50%;transform:translateX(-50%);
+  background:rgba(0,27,58,0.7);color:white;font-size:12px;
+  padding:4px 14px;border-radius:20px;
+}
+.gallery-thumbs{display:flex;gap:10px;margin-top:12px;justify-content:center;flex-wrap:wrap;}
+.gallery-thumb{
+  width:80px;height:52px;border-radius:5px;overflow:hidden;
+  border:2px solid transparent;cursor:none;transition:border-color 0.2s;
+  flex-shrink:0;
+}
+.gallery-thumb.active{border-color:var(--green);box-shadow:0 0 12px rgba(130,209,28,0.4);}
+.gallery-thumb img{width:100%;height:100%;object-fit:cover;opacity:0.6;transition:opacity 0.2s;}
+.gallery-thumb.active img,.gallery-thumb:hover img{opacity:1;}
+
+/* ===================== FOOTER ===================== */
+footer{background:#000d1a;padding:32px 0;}
+.footer-inner{
+  max-width:1280px;margin:0 auto;padding:0 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:16px;
+  border-top:1px solid rgba(255,255,255,0.06);padding-top:32px;
+}
+.footer-brand{
+  font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;color:white;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.footer-logo-img{
+  display:block;height:32px;width:auto;max-width:140px;
+  object-fit:contain;object-position:left center;
+}
+.footer-brand .accent{color:var(--green);}
+.footer-cnpj{font-size:11px;color:rgba(255,255,255,0.25);margin-top:3px;letter-spacing:0.05em;}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.3);}
+.footer-links{display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+.footer-links a{font-size:12px;color:rgba(255,255,255,0.35);text-decoration:none;letter-spacing:0.05em;transition:color 0.2s;}
+.footer-links a:hover{color:var(--green);}
+.footer-social{display:flex;align-items:center;justify-content:center;padding:4px;}
+.footer-social:hover{color:var(--green);}
+.footer-social svg{display:block;}
+.footer-credit{
+  max-width:1280px;margin:0 auto;padding:12px 40px 0;
+  border-top:1px solid rgba(255,255,255,0.06);
+  text-align:center;font-size:11px;color:rgba(255,255,255,0.25);
+  letter-spacing:0.04em;
+}
+.footer-credit a{color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.2s;}
+.footer-credit a:hover{color:var(--green);}
+
+/* ===================== FLOATING WA ===================== */
+.wa-float{
+  position:fixed;bottom:28px;right:28px;z-index:80;
+  width:56px;height:56px;background:#25D366;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  color:white;text-decoration:none;
+  box-shadow:0 4px 24px rgba(37,211,102,0.4);
+  opacity:0;transform:scale(0.8);
+  transition:all 0.3s;
+  animation:popIn 0.5s 2s forwards;
+}
+.wa-float:hover{background:#1db954;box-shadow:0 6px 32px rgba(37,211,102,0.55);transform:scale(1.08)!important;}
+@keyframes popIn{to{opacity:1;transform:scale(1)}}
+
+/* ===================== ANIMATIONS ===================== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:0.1s;}
+.reveal-delay-2{transition-delay:0.2s;}
+.reveal-delay-3{transition-delay:0.3s;}
+.reveal-delay-4{transition-delay:0.4s;}
+
+/* ===================== RESPONSIVE ===================== */
+@media(max-width:900px){
+  body{cursor:auto;}
+  .cursor,.cursor-ring{display:none;}
+  .container{padding:0 24px;}
+  nav.desktop,.nav-cta{display:none;}
+  .burger{display:flex;}
+  .nav-logo-img{height:34px;max-width:150px;}
+  .hero-content{padding:0 24px;padding-top:80px;}
+  h1.hero-title{font-size:clamp(44px,11vw,72px);}
+  .hero-stats{gap:28px;}
+  .hero-scroll{display:none;}
+  .services-grid{grid-template-columns:1fr;border-radius:8px;}
+  .service-card{border-right:none;border-bottom:2px solid #e8e8e2;}
+  .fleet-grid{grid-template-columns:1fr 1fr;}
+  .stats-band{flex-wrap:wrap;}
+  .stats-band-item{flex:50%;border-right:none;border-bottom:1px solid rgba(0,27,58,0.12);}
+  .facilities-layout{border-radius:8px;}
+  .contact-grid{border-radius:8px;}
+  .contact-form-wrap,.contact-info-wrap,.facility-info{padding:36px 28px;}
+  .form-row{grid-template-columns:1fr;}
+  .footer-inner{flex-direction:column;align-items:flex-start;gap:12px;}
+  section{padding:72px 0;}
+}
+@media(max-width:480px){
+  .fleet-grid{grid-template-columns:1fr;}
+  .hero-stats{gap:20px;}
+  .stat-divider{display:none;}
+  .stat-num{font-size:30px;}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAVBAR -->
+<header id="navbar" class="top">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="images/logo.svg" alt="TruckBem Transportes" class="nav-logo-img" width="180" height="40" onload="var t=this.nextElementSibling;if(t)t.style.display='none';" onerror="this.style.display='none';var t=this.nextElementSibling;if(t)t.style.display='inline';">
+      <span class="nav-logo-text">Truck<span class="accent">Bem</span><span class="light"> Transportes</span></span>
+    </a>
+    <nav class="desktop">
+      <a href="#servicos">Serviços</a>
+      <a href="#frota">Frota</a>
+      <a href="#instalacoes">Instalações</a>
+      <a href="#clientes">Clientes</a>
+      <a href="#contato" class="nav-cta">Orçamento</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="menuClose">✕</button>
+  <a href="#servicos" onclick="closeMobileMenu()">Serviços</a>
+  <a href="#frota" onclick="closeMobileMenu()">Frota</a>
+  <a href="#instalacoes" onclick="closeMobileMenu()">Instalações</a>
+  <a href="#clientes" onclick="closeMobileMenu()">Clientes</a>
+  <a href="#contato" onclick="closeMobileMenu()" style="color:var(--green)">Orçamento</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <video autoplay muted loop playsinline preload="metadata" class="hero-video" poster="images/placeholder.svg">
+    <source src="images/hero/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Desde 2021 · Sul & Sudeste</div>
+    <h1 class="hero-title">
+      Logística<br>inteligente para
+      <span class="line-green">sua operação</span>
+    </h1>
+    <p class="hero-sub">Excelência em transporte, rastreamento em tempo real e atendimento dedicado — padrão TruckBem. Cobrindo SP, RS, SC e PR.</p>
+    <div class="hero-actions">
+      <a href="#contato" class="btn-primary">
+        Solicitar Orçamento
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <button class="btn-ghost" onclick="document.getElementById('frota').scrollIntoView({behavior:'smooth'})">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+        Conhecer a Frota
+      </button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num" data-target="300">0</div>
+        <div class="stat-label">Entregas/dia</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="98" data-suffix="%">0</div>
+        <div class="stat-label">Satisfação</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num" data-target="4" data-suffix="+">0</div>
+        <div class="stat-label">Anos de mercado</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Estados atendidos</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="servicos">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Nossos Serviços</div>
+      <h2 class="section-title">Soluções logísticas <span class="accent">completas</span></h2>
+      <p style="max-width:580px;font-size:15px;line-height:1.75;color:var(--muted)">Sua operação não pode parar. Oferecemos transporte ágil, rastreamento em tempo real e atendimento dedicado para garantir eficiência, pontualidade e redução de custos.</p>
+    </div>
+    <div class="services-grid reveal reveal-delay-2">
+      <div class="service-card">
+        <div class="service-card-inner">
+          <div class="service-num">01</div>
+          <div class="service-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7"/></svg>
+          </div>
+          <h3>Carga Fracionada</h3>
+          <p>Coletas e entregas otimizadas com rastreamento em tempo real e gestão inteligente de rotas para sua operação.</p>
+          <div class="service-arrow">Saiba mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-inner">
+          <div class="service-num">02</div>
+          <div class="service-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+          </div>
+          <h3>Transporte Dedicado</h3>
+          <p>Controle total e SLA premium. Frota exclusiva para sua empresa com monitoramento 24 horas e equipe dedicada.</p>
+          <div class="service-arrow">Saiba mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-inner">
+          <div class="service-num">03</div>
+          <div class="service-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg>
+          </div>
+          <h3>Transporte&nbsp;Refrigerado</h3>
+          <p>Temperatura controlada durante todo o trajeto, garantindo a integridade de cargas perecíveis e sensíveis.</p>
+          <div class="service-arrow">Saiba mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-card-inner">
+          <div class="service-num">04</div>
+          <div class="service-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8c0 3.613-3.869 7.429-5.393 8.795a1 1 0 0 1-1.214 0C9.87 15.429 6 11.613 6 8a6 6 0 0 1 12 0"/><circle cx="12" cy="8" r="2"/><path d="M8.714 14h-3.71a1 1 0 0 0-.948.683l-2.004 6A1 1 0 0 0 3 22h18a1 1 0 0 0 .948-1.316l-2-6a1 1 0 0 0-.949-.684h-3.712"/></svg>
+          </div>
+          <h3>Regiões Atendidas</h3>
+          <p>Presença estratégica em SP, RS, SC e PR. Cobertura total no Sul e Sudeste com entregas rápidas e seguras.</p>
+          <div class="service-arrow">Saiba mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLEET -->
+<section id="frota">
+  <div class="container">
+    <div class="fleet-header reveal">
+      <div>
+        <div class="section-tag" style="color:var(--green)">Nossa Frota</div>
+        <h2 class="section-title" style="color:white">Veículos <span class="accent">modernos</span><br>para toda carga</h2>
+      </div>
+      <p class="fleet-sub">Frota própria e terceirizada equipada com tecnologia de rastreamento GPS em tempo real, assegurando controle total e segurança da carga.</p>
+    </div>
+    <div class="fleet-grid reveal reveal-delay-1">
+      <div class="fleet-card">
+        <img src="images/frota/caminhao_1.jpg" alt="Caminhões TruckBem" width="300" height="400" loading="lazy" onerror="this.style.opacity='0'">
+        <div class="fleet-card-overlay">
+          <div class="fleet-card-tag">Frota Principal</div>
+          <h3>Caminhões</h3>
+          <p>Cargas pesadas e longas distâncias com segurança total</p>
+          <div class="fleet-gps">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4" stroke="white" stroke-width="2" fill="none"/></svg>
+            Rastreamento GPS
+          </div>
+        </div>
+      </div>
+      <div class="fleet-card">
+        <img src="images/frota/Tres_quarto_caminhao_2.jpg" alt="Caminhões 3/4 TruckBem" width="300" height="400" loading="lazy" onerror="this.style.opacity='0'">
+        <div class="fleet-card-overlay">
+          <div class="fleet-card-tag">Urbano & Regional</div>
+          <h3>Caminhões 3/4</h3>
+          <p>Versatilidade para entregas urbanas e regionais</p>
+          <div class="fleet-gps">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4" stroke="white" stroke-width="2" fill="none"/></svg>
+            Rastreamento GPS
+          </div>
+        </div>
+      </div>
+      <div class="fleet-card">
+        <img src="images/frota/Van_3.jpg" alt="Vans TruckBem" width="300" height="400" loading="lazy" onerror="this.style.opacity='0'">
+        <div class="fleet-card-overlay">
+          <div class="fleet-card-tag">Entrega Rápida</div>
+          <h3>Vans</h3>
+          <p>Agilidade em entregas fracionadas por toda a região</p>
+          <div class="fleet-gps">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4" stroke="white" stroke-width="2" fill="none"/></svg>
+            Rastreamento GPS
+          </div>
+        </div>
+      </div>
+      <div class="fleet-card">
+        <img src="images/frota/Fiorino_4.jpg" alt="Fiorinos TruckBem" width="300" height="400" loading="lazy" onerror="this.style.opacity='0'">
+        <div class="fleet-card-overlay">
+          <div class="fleet-card-tag">Last Mile</div>
+          <h3>Fiorinos</h3>
+          <p>Solução econômica e eficiente para last-mile delivery</p>
+          <div class="fleet-gps">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4" stroke="white" stroke-width="2" fill="none"/></svg>
+            Rastreamento GPS
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div id="stats">
+  <div class="stats-band">
+    <div class="stats-band-item reveal">
+      <div class="stats-band-num" data-target="300" data-suffix="+">300+</div>
+      <div class="stats-band-label">Entregas por dia</div>
+    </div>
+    <div class="stats-band-item reveal reveal-delay-1">
+      <div class="stats-band-num" data-target="98" data-suffix="%">98%</div>
+      <div class="stats-band-label">Índice de satisfação</div>
+    </div>
+    <div class="stats-band-item reveal reveal-delay-2">
+      <div class="stats-band-num" data-target="8500" data-suffix="m²">8.500m²</div>
+      <div class="stats-band-label">Área operacional</div>
+    </div>
+    <div class="stats-band-item reveal reveal-delay-3">
+      <div class="stats-band-num" data-target="5000" data-suffix="+">5.000+</div>
+      <div class="stats-band-label">Posições-palete</div>
+    </div>
+  </div>
+</div>
+
+<!-- FACILITIES -->
+<section id="instalacoes">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Estrutura</div>
+      <h2 class="section-title">Nossas <span class="accent">Instalações</span></h2>
+    </div>
+    <div class="facilities-layout reveal reveal-delay-1">
+      <div class="map-wrap">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.0!2d-46.9347!3d-23.5489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMyJzU2LjAiUyA0NsKwNTYnMDQuOSJX!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr&q=Av.+Portugal,+46+-+Itaqui,+Itapevi+-+SP,+06690-280"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Localização TruckBem">
+        </iframe>
+      </div>
+      <div class="facility-info">
+        <div>
+          <div class="facility-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+            Galpão Operacional
+          </div>
+          <h3>CL Sanca Itapevi 2</h3>
+          <div class="facility-addr">Av. Portugal, 46 — Itaqui, Itapevi — SP, 06690-280</div>
+          <p class="facility-desc">Galpão logístico em Itapevi com estrutura moderna, pé-direito elevado, layout otimizado e sistema de refrigeração para armazenamento com controle de temperatura. Equipe capacitada para planejamento logístico e atendimento personalizado.</p>
+          <div class="facility-specs">
+            <div class="spec-row">
+              <span class="spec-label">Área operacional</span>
+              <span class="spec-val">8.500 m²</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Capacidade de palete</span>
+              <span class="spec-val">5.000+ posições</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Refrigeração</span>
+              <span class="spec-val">Temperatura controlada</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Atendimento</span>
+              <span class="spec-val">24 horas</span>
+            </div>
+          </div>
+        </div>
+        <button class="gallery-btn" onclick="openGallery()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 22H4a2 2 0 0 1-2-2V6"/><path d="m22 13-1.296-1.296a2.41 2.41 0 0 0-3.408 0L11 18"/><circle cx="12" cy="8" r="2"/><rect width="16" height="16" x="6" y="2" rx="2"/></svg>
+          Ver Galeria
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section id="clientes">
+  <div class="container">
+    <div class="clients-header reveal">
+      <div class="section-tag" style="justify-content:center;color:var(--green)">Parceiros</div>
+      <h2 class="section-title" style="color:white">Quem confia na <span class="accent">TruckBem</span></h2>
+      <p>Grandes empresas escolhem a TruckBem como parceira estratégica para suas operações logísticas, confiando em nossa capacidade de entregar eficiência e excelência.</p>
+    </div>
+  </div>
+  <div class="marquee-wrap reveal reveal-delay-1">
+    <div class="marquee-fade-l"></div>
+    <div class="marquee-fade-r"></div>
+    <div class="marquee-track" id="marqueeTrack">
+      <div class="client-card"><img src="images/clients/Aurora_.png" alt="Aurora" width="180" height="180" loading="lazy"><span class="client-name">Aurora</span></div>
+      <div class="client-card"><img src="images/clients/Santista.jpeg" alt="Santista" width="180" height="180" loading="lazy"><span class="client-name">Santista</span></div>
+      <div class="client-card"><img src="images/clients/chocolife_.jpeg" alt="Chocolife" width="180" height="180" loading="lazy"><span class="client-name">Chocolife</span></div>
+      <div class="client-card"><img src="images/clients/gv-logistica.png" alt="GV Logística" width="180" height="180" loading="lazy"><span class="client-name">GV Logística</span></div>
+      <div class="client-card"><img src="images/clients/laffin_.png" alt="Laffin" width="180" height="180" loading="lazy"><span class="client-name">Laffin</span></div>
+      <div class="client-card"><img src="images/clients/emj_logistica.jpeg" alt="EMJ Logística" width="180" height="180" loading="lazy"><span class="client-name">EMJ</span></div>
+      <!-- duplicated for loop -->
+      <div class="client-card"><img src="images/clients/Aurora_.png" alt="Aurora" width="180" height="180" loading="lazy"><span class="client-name">Aurora</span></div>
+      <div class="client-card"><img src="images/clients/Santista.jpeg" alt="Santista" width="180" height="180" loading="lazy"><span class="client-name">Santista</span></div>
+      <div class="client-card"><img src="images/clients/chocolife_.jpeg" alt="Chocolife" width="180" height="180" loading="lazy"><span class="client-name">Chocolife</span></div>
+      <div class="client-card"><img src="images/clients/gv-logistica.png" alt="GV Logística" width="180" height="180" loading="lazy"><span class="client-name">GV Logística</span></div>
+      <div class="client-card"><img src="images/clients/laffin_.png" alt="Laffin" width="180" height="180" loading="lazy"><span class="client-name">Laffin</span></div>
+      <div class="client-card"><img src="images/clients/emj_logistica.jpeg" alt="EMJ Logística" width="180" height="180" loading="lazy"><span class="client-name">EMJ</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contato">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Contato</div>
+      <h2 class="section-title">Fale com <span class="accent">a gente</span></h2>
+      <p style="font-size:15px;color:var(--muted);margin-top:4px">Solicite um orçamento ou tire suas dúvidas. Estamos prontos para atender.</p>
+    </div>
+    <div class="contact-grid reveal reveal-delay-1">
+      <div class="contact-form-wrap">
+        <h3>Solicitar Orçamento</h3>
+        <p>Preencha o formulário e entraremos em contato rapidamente.</p>
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="field">
+              <input type="text" id="name" placeholder=" " required>
+              <label for="name">Nome completo</label>
+            </div>
+            <div class="field">
+              <input type="email" id="email" placeholder=" " required>
+              <label for="email">Email</label>
+            </div>
+            <div class="field">
+              <input
+                type="tel"
+                id="phone"
+                placeholder=" "
+                required
+                inputmode="numeric"
+                autocomplete="tel"
+                maxlength="15">
+              <label for="phone">Telefone</label>
+            </div>
+            <div class="field">
+              <input type="text" id="company" placeholder=" ">
+              <label for="company">Empresa</label>
+            </div>
+          </div>
+          <div class="field">
+            <textarea id="message" rows="4" placeholder=" " required></textarea>
+            <label for="message">Mensagem</label>
+          </div>
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/></svg>
+            Enviar Mensagem
+          </button>
+        </form>
+      </div>
+      <div class="contact-info-wrap">
+        <div>
+          <div class="contact-brand">
+            <img src="images/logo2.svg" alt="TruckBem" class="contact-logo-img" width="200" height="40" loading="lazy" onerror="this.style.display='none';">
+          </div>
+          <div class="contact-tagline">Logística inteligente para sua empresa</div>
+        </div>
+        <div class="info-items">
+          <div class="info-item">
+            <div class="info-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 12.92a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><div class="info-label">Telefone</div><div class="info-value"><a href="tel:+551134567890">(11) 3456-7890</a></div></div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></div>
+            <div><div class="info-label">WhatsApp</div><div class="info-value"><a href="https://wa.me/5511997809308" target="_blank">+55 11 99780-9308</a></div></div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
+            <div><div class="info-label">Email</div><div class="info-value"><a href="mailto:administrativo@truckbem.com.br">administrativo@truckbem.com.br</a></div></div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="info-label">Escritório</div><div class="info-value"><a href="https://maps.google.com/?q=Av.+dos+Parques,+45" target="_blank">Av. dos Parques, 45 - Sala 601B<br>Alphasitio, Santana de Parnaíba - SP</a></div></div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div><div class="info-label">Horário</div><div class="info-value">Seg a Sex, 08h às 18h</div></div>
+          </div>
+        </div>
+        <a href="https://wa.me/5511997809308?text=Olá%2C%20gostaria%20de%20solicitar%20um%20orçamento." target="_blank" class="wa-card">
+          <div class="wa-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+          </div>
+          <div class="wa-text">
+            <p>Prefere WhatsApp?</p>
+            <span>Resposta em até 5 minutos</span>
+          </div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(130,209,28,1)" stroke-width="2" style="margin-left:auto"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <img src="images/logo.svg" alt="TruckBem" class="footer-logo-img" width="140" height="32" loading="lazy" onerror="this.style.display='none';var t=this.nextElementSibling;if(t)t.style.display='inline';">
+        <span class="footer-brand-text" style="display:none">TruckBem</span>
+      </div>
+      <div class="footer-cnpj">CNPJ: 46.529.870/0001-53 · Sociedade Empresária Limitada</div>
+    </div>
+    <p class="footer-copy">© 2026 TruckBem. Todos os direitos reservados.</p>
+    <div class="footer-links">
+      <a href="#servicos">Serviços</a>
+      <a href="#frota">Frota</a>
+      <a href="#contato">Contato</a>
+      <a id="footer-instagram" href="https://www.instagram.com/truckbemtransportes?igsh=NDd0dDZwdXJuaXVu" class="footer-social" aria-label="Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      <a id="footer-facebook" href="https://www.facebook.com/profile.php?id=61579668896436" class="footer-social" aria-label="Facebook" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+      <a id="footer-linkedin" href="https://www.linkedin.com/in/truckbem-transportes-1823083b7" class="footer-social" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V14"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+    </div>
+  </div>
+  <div class="footer-credit">Site desenvolvido por <strong>Natã Rosário</strong></div>
+</footer>
+
+<!-- FLOATING WA -->
+<a class="wa-float" href="https://wa.me/5511997809308?text=Olá%2C%20gostaria%20de%20solicitar%20um%20orçamento." target="_blank" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+</a>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-bg" id="successModal">
+  <div class="modal-box">
+    <div class="modal-icon">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#82D11C" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    </div>
+    <h3>Mensagem Enviada!</h3>
+    <p>Obrigado pelo contato. Entraremos em contato em breve para dar continuidade ao seu orçamento.</p>
+    <button class="modal-close-btn" onclick="closeModal()">Fechar</button>
+  </div>
+</div>
+
+<!-- GALLERY MODAL -->
+<div class="gallery-modal" id="galleryModal" onclick="closeGallery(event)">
+  <div class="gallery-inner" onclick="event.stopPropagation()">
+    <button class="gallery-close" onclick="closeGallery()">✕</button>
+    <div class="gallery-main">
+      <img src="images/gallery/Galpao_1_galeria.jpeg" alt="Galpão TruckBem" class="active" width="640" height="400" loading="lazy">
+      <img src="images/gallery/Galpao_2_galeria.jpeg" alt="Área operacional TruckBem" width="640" height="400" loading="lazy">
+      <img src="images/gallery/Galpao_3_galeria.jpeg" alt="Porta-paletes TruckBem" width="640" height="400" loading="lazy">
+      <img src="images/gallery/Escritorio_4_galeria.png" alt="Escritório TruckBem" width="640" height="400" loading="lazy">
+      <button class="gallery-nav gallery-prev" onclick="galleryNav(-1)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="gallery-nav gallery-next" onclick="galleryNav(1)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <div class="gallery-counter" id="galleryCounter">1 / 4</div>
+    </div>
+    <div class="gallery-thumbs">
+      <div class="gallery-thumb active" onclick="setGalleryImg(0)"><img src="images/gallery/Galpao_1_galeria.jpeg" alt="thumb 1" width="80" height="52" loading="lazy"></div>
+      <div class="gallery-thumb" onclick="setGalleryImg(1)"><img src="images/gallery/Galpao_2_galeria.jpeg" alt="thumb 2" width="80" height="52" loading="lazy"></div>
+      <div class="gallery-thumb" onclick="setGalleryImg(2)"><img src="images/gallery/Galpao_3_galeria.jpeg" alt="thumb 3" width="80" height="52" loading="lazy"></div>
+      <div class="gallery-thumb" onclick="setGalleryImg(3)"><img src="images/gallery/Escritorio_4_galeria.png" alt="thumb 4" width="80" height="52" loading="lazy"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===================== CURSOR =====================
+const cursor = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  cursor.style.left=mx+'px';cursor.style.top=my+'px';
+});
+// ===================== HERO VIDEO FALLBACK =====================
+const heroVideo = document.querySelector('#hero .hero-video');
+if (heroVideo) {
+  const fallbackSrc = heroVideo.getAttribute('poster') || 'images/placeholder.svg';
+  heroVideo.addEventListener('error', () => {
+    const img = document.createElement('img');
+    img.className = 'hero-video-fallback';
+    img.src = fallbackSrc;
+    img.alt = 'Imagem de fundo';
+    heroVideo.insertAdjacentElement('afterend', img);
+    heroVideo.remove();
+  }, { once: true });
+}
+function animRing(){
+  rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;
+  cursorRing.style.left=rx+'px';cursorRing.style.top=ry+'px';
+  requestAnimationFrame(animRing);
+}
+animRing();
+
+// ===================== PHONE MASK =====================
+const phoneInput = document.getElementById('phone');
+if (phoneInput) {
+  phoneInput.addEventListener('input', () => {
+    // Mantém apenas dígitos
+    let digits = phoneInput.value.replace(/\D/g, '').slice(0, 11);
+
+    // Aplica máscara (XX) XXXXX-XXXX
+    if (digits.length > 0) {
+      let formatted = '';
+      if (digits.length <= 2) {
+        formatted = `(${digits}`;
+      } else if (digits.length <= 7) {
+        formatted = `(${digits.slice(0,2)}) ${digits.slice(2)}`;
+      } else {
+        formatted = `(${digits.slice(0,2)}) ${digits.slice(2,7)}-${digits.slice(7)}`;
+      }
+      phoneInput.value = formatted;
+    }
+  });
+}
+document.querySelectorAll('a,button,.service-card,.fleet-card,.client-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.classList.add('hover');cursorRing.classList.add('hover');});
+  el.addEventListener('mouseleave',()=>{cursor.classList.remove('hover');cursorRing.classList.remove('hover');});
+});
+
+// ===================== NAVBAR =====================
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>60){navbar.classList.add('scrolled');navbar.classList.remove('top');}
+  else{navbar.classList.remove('scrolled');navbar.classList.add('top');}
+},{passive:true});
+
+// ===================== MOBILE MENU =====================
+const mobileMenu=document.getElementById('mobileMenu');
+document.getElementById('burger').addEventListener('click',()=>mobileMenu.classList.add('open'));
+document.getElementById('menuClose').addEventListener('click',()=>mobileMenu.classList.remove('open'));
+function closeMobileMenu(){mobileMenu.classList.remove('open');}
+
+// ===================== SCROLL REVEAL =====================
+const reveals=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');}});
+},{threshold:0.1,rootMargin:'0px 0px -60px 0px'});
+reveals.forEach(r=>observer.observe(r));
+
+// ===================== COUNTER ANIMATION =====================
+function animateCounter(el){
+  const target=parseInt(el.dataset.target)||0;
+  const suffix=el.dataset.suffix||'+';
+  const dur=1800,steps=60;
+  const step=target/steps;
+  let current=0,count=0;
+  const interval=setInterval(()=>{
+    count++;current+=step;
+    if(count>=steps){current=target;clearInterval(interval);}
+    el.textContent=Math.round(current).toLocaleString('pt-BR')+(count>=steps?suffix:'');
+  },dur/steps);
+}
+const statEls=document.querySelectorAll('[data-target]');
+const statObserver=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      animateCounter(e.target);
+      statObserver.unobserve(e.target);
+    }
+  });
+},{threshold:0.5});
+statEls.forEach(el=>statObserver.observe(el));
+
+// ===================== CONTACT FORM =====================
+function handleSubmit(e){
+  e.preventDefault();
+
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const company = document.getElementById('company').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  // Verificação básica antes de enviar
+  if (!name || !email || !phone || !message) {
+    btn.disabled = false;
+    btn.textContent = 'Enviar Mensagem';
+    return;
+  }
+
+  fetch('/api/contact', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, email, phone, company, message })
+  })
+    .then(async (res) => {
+      if (!res.ok) throw new Error(await res.text());
+      showSuccess();
+      e.target.reset();
+    })
+    .catch(() => {
+      var isLiveServer = window.location.port === '5500' || window.location.port === '5501';
+      if (isLiveServer) {
+        alert('O envio só funciona quando o site é aberto pelo servidor Node.\n\nNo terminal, na pasta do projeto, execute:\nnpm start\n\nDepois abra no navegador:\nhttp://localhost:3000');
+      } else {
+        alert('Não foi possível enviar sua mensagem agora. Tente novamente em instantes.');
+      }
+    })
+    .finally(() => {
+      btn.disabled = false;
+      btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/></svg> Enviar Mensagem';
+    });
+}
+function showSuccess(){document.getElementById('successModal').classList.add('open');}
+function closeModal(){document.getElementById('successModal').classList.remove('open');}
+document.getElementById('successModal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+
+// ===================== GALLERY =====================
+let galleryIdx=0;
+const galleryImgs=document.querySelectorAll('.gallery-main img');
+const galleryThumbs=document.querySelectorAll('.gallery-thumb');
+const total=galleryImgs.length;
+function setGalleryImg(i){
+  galleryImgs[galleryIdx].classList.remove('active');
+  galleryThumbs[galleryIdx].classList.remove('active');
+  galleryIdx=((i%total)+total)%total;
+  galleryImgs[galleryIdx].classList.add('active');
+  galleryThumbs[galleryIdx].classList.add('active');
+  document.getElementById('galleryCounter').textContent=(galleryIdx+1)+' / '+total;
+}
+function galleryNav(dir){setGalleryImg(galleryIdx+dir);}
+function openGallery(){setGalleryImg(0);document.getElementById('galleryModal').classList.add('open');}
+function closeGallery(e){
+  if(!e||e.target===document.getElementById('galleryModal'))
+    document.getElementById('galleryModal').classList.remove('open');
+}
+document.addEventListener('keydown',e=>{
+  if(document.getElementById('galleryModal').classList.contains('open')){
+    if(e.key==='ArrowLeft')galleryNav(-1);
+    if(e.key==='ArrowRight')galleryNav(1);
+    if(e.key==='Escape')closeGallery();
+  }
+});
+</script>
+</body>
+</html>
