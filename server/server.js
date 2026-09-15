@@ -81,7 +81,7 @@ app.post('/api/contact', contactRateLimit, async (req, res) => {
       '---',
       '',
       'Este e-mail foi enviado automaticamente pelo formulário do site:',
-      'https://truckbem.com.br',
+      'https://www.truckbem.com/',
       '',
       `Data: ${dataAtual}`
     ].join('\n');
@@ -98,7 +98,7 @@ app.post('/api/contact', contactRateLimit, async (req, res) => {
       '<p><strong>Mensagem:</strong></p>',
       `<p>${escapeHtml(message).replace(/\n/g, '<br>')}</p>`,
       '<hr>',
-      '<p>Mensagem enviada pelo formulário do site<br>https://truckbem.com.br</p>',
+      '<p>Mensagem enviada pelo formulário do site<br>https://www.truckbem.com/</p>',
       '</td></tr></table>',
       '</body></html>'
     ].join('');
