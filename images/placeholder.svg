@@ -17,10 +17,10 @@
     <circle cx="380" cy="585" r="26" />
     <circle cx="820" cy="585" r="26" />
   </g>
-  <text x="600" y="210" text-anchor="middle" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="700">
+  <text x="600" y="210" text-anchor="middle" fill="#ffffff" font-family="Barlow, Arial, sans-serif" font-size="42" font-weight="700">
     TruckBem � Placeholder
   </text>
-  <text x="600" y="268" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Inter, Arial, sans-serif" font-size="22">
+  <text x="600" y="268" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Barlow, Arial, sans-serif" font-size="22">
     Substitua por uma imagem real em /images
   </text>
 </svg>

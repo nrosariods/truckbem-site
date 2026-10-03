@@ -11,10 +11,10 @@
     <path d="M220 650l220-240 170 170 170-220 240 290" />
     <circle cx="490" cy="350" r="46" />
   </g>
-  <text x="700" y="220" text-anchor="middle" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="40" font-weight="800">
+  <text x="700" y="220" text-anchor="middle" fill="#ffffff" font-family="Barlow, Arial, sans-serif" font-size="40" font-weight="800">
     Galeria � Placeholder
   </text>
-  <text x="700" y="272" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Inter, Arial, sans-serif" font-size="20">
+  <text x="700" y="272" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Barlow, Arial, sans-serif" font-size="20">
     Coloque suas fotos em /images/gallery
   </text>
 </svg>
