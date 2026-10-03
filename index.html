@@ -867,7 +867,7 @@ footer{background:#000d1a;padding:32px 0;}
 
 <!-- HERO -->
 <section id="hero">
-  <video autoplay muted loop playsinline preload="metadata" class="hero-video" poster="images/placeholder.svg">
+  <video autoplay muted loop playsinline preload="metadata" class="hero-video">
     <source src="images/hero/hero.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
@@ -1315,13 +1315,7 @@ document.addEventListener('mousemove',e=>{
 // ===================== HERO VIDEO FALLBACK =====================
 const heroVideo = document.querySelector('#hero .hero-video');
 if (heroVideo) {
-  const fallbackSrc = heroVideo.getAttribute('poster') || 'images/placeholder.svg';
   heroVideo.addEventListener('error', () => {
-    const img = document.createElement('img');
-    img.className = 'hero-video-fallback';
-    img.src = fallbackSrc;
-    img.alt = 'Imagem de fundo';
-    heroVideo.insertAdjacentElement('afterend', img);
     heroVideo.remove();
   }, { once: true });
 }
