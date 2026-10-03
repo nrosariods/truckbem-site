@@ -111,13 +111,13 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ===================== RESET & BASE ===================== */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;font-size:16px}
 body{
-  font-family:'Barlow',sans-serif;
+  font-family:var(--font-sans);
   background:#f5f4f0;
   color:#1a1a1a;
   overflow-x:hidden;
@@ -126,23 +126,28 @@ body{
 
 /* ===================== CUSTOM CURSOR ===================== */
 .cursor{
-  position:fixed;width:10px;height:10px;background:#82D11C;border-radius:50%;
+  position:fixed;width:10px;height:10px;background:#cbe60f;border-radius:50%;
   pointer-events:none;z-index:9999;transform:translate(-50%,-50%);
   transition:transform 0.1s,width 0.2s,height 0.2s,opacity 0.2s;
 }
 .cursor-ring{
-  position:fixed;width:36px;height:36px;border:1.5px solid rgba(130,209,28,0.5);
+  position:fixed;width:36px;height:36px;border:1.5px solid rgba(203,230,15,0.5);
   border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);
   transition:all 0.12s ease;
 }
-.cursor.hover{width:16px;height:16px;background:#82D11C;}
-.cursor-ring.hover{width:50px;height:50px;border-color:#82D11C;opacity:0.6;}
+.cursor.hover{width:16px;height:16px;background:#cbe60f;}
+.cursor-ring.hover{width:50px;height:50px;border-color:#cbe60f;opacity:0.6;}
 
 /* ===================== CSS VARIABLES ===================== */
 :root{
   --navy:#001B3A;
-  --green:#82D11C;
-  --green-dark:#6ab517;
+  --primary:#cbe60f;
+  --accent:#cbe60f;
+  --green:#cbe60f;
+  --green-dark:#cbe60f;
+  --green-hover:#e8f56a;
+  --font-sans:"Inter","Segoe UI",system-ui,sans-serif;
+  --font-display:"Manrope","Segoe UI",system-ui,sans-serif;
   --cream:#f5f4f0;
   --white:#ffffff;
   --text:#1a1a1a;
@@ -174,7 +179,7 @@ body{
 #navbar.top{background:transparent;}
 
 .nav-logo{
-  font-family:'Barlow Condensed',sans-serif;
+  font-family:var(--font-display);
   font-size:22px;font-weight:800;letter-spacing:0.02em;
   text-decoration:none;color:white;
   display:flex;align-items:center;gap:10px;
@@ -205,7 +210,7 @@ nav.desktop a:hover::after{width:60%;}
   padding:10px 22px!important;border-radius:6px;
   font-weight:700!important;transition:all 0.2s!important;
 }
-.nav-cta:hover{background:#96e520!important;box-shadow:0 0 24px rgba(130,209,28,0.35);}
+.nav-cta:hover{background:#e8f56a!important;box-shadow:0 0 24px rgba(203,230,15,0.35);}
 .nav-cta::after{display:none!important;}
 
 .burger{
@@ -221,7 +226,7 @@ nav.desktop a:hover::after{width:60%;}
 }
 .mobile-menu.open{opacity:1;pointer-events:all;}
 .mobile-menu a{
-  font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:700;
+  font-family:var(--font-display);font-size:36px;font-weight:700;
   color:white;text-decoration:none;letter-spacing:0.05em;
   transition:color 0.2s;
 }
@@ -272,7 +277,7 @@ nav.desktop a:hover::after{width:60%;}
 }
 .hero-grid{
   position:absolute;inset:0;
-  background-image:linear-gradient(rgba(130,209,28,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(130,209,28,0.04) 1px,transparent 1px);
+  background-image:linear-gradient(rgba(203,230,15,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(203,230,15,0.04) 1px,transparent 1px);
   background-size:60px 60px;
   z-index:1;
 }
@@ -283,15 +288,15 @@ nav.desktop a:hover::after{width:60%;}
 }
 .hero-tag{
   display:inline-flex;align-items:center;gap:8px;
-  font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;
+  font-family:var(--font-display);font-size:12px;font-weight:600;
   letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--green);border:1px solid rgba(130,209,28,0.3);
+  color:var(--green);border:1px solid rgba(203,230,15,0.3);
   padding:6px 14px;border-radius:100px;margin-bottom:28px;
   opacity:0;animation:fadeUp 0.8s 0.2s forwards;
 }
 .hero-tag::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;}
 h1.hero-title{
-  font-family:'Barlow Condensed',sans-serif;
+  font-family:var(--font-display);
   font-size:clamp(52px,7vw,96px);
   font-weight:900;line-height:0.95;
   letter-spacing:-0.01em;text-transform:uppercase;
@@ -312,12 +317,12 @@ h1.hero-title .line-green{color:var(--green);display:block;}
 .btn-primary{
   display:inline-flex;align-items:center;gap:8px;
   background:var(--green);color:var(--navy);
-  font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;
+  font-family:var(--font-display);font-size:15px;font-weight:700;
   letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;
   padding:16px 32px;border-radius:6px;border:none;cursor:none;
   transition:all 0.25s;
 }
-.btn-primary:hover{background:#96e520;box-shadow:0 0 40px rgba(130,209,28,0.4);transform:translateY(-1px);}
+.btn-primary:hover{background:#e8f56a;box-shadow:0 0 40px rgba(203,230,15,0.4);transform:translateY(-1px);}
 .btn-primary svg{transition:transform 0.2s;}
 .btn-primary:hover svg{transform:translateX(4px);}
 
@@ -334,7 +339,7 @@ h1.hero-title .line-green{color:var(--green);display:block;}
   opacity:0;animation:fadeUp 0.9s 0.8s forwards;
 }
 .stat-num{
-  font-family:'Barlow Condensed',sans-serif;
+  font-family:var(--font-display);
   font-size:40px;font-weight:900;color:var(--green);
   line-height:1;letter-spacing:-0.02em;
 }
@@ -348,7 +353,7 @@ h1.hero-title .line-green{color:var(--green);display:block;}
   opacity:0;animation:fadeIn 1s 1.2s forwards;
 }
 .scroll-line{
-  width:1px;height:60px;background:linear-gradient(to bottom,rgba(130,209,28,0.6),transparent);
+  width:1px;height:60px;background:linear-gradient(to bottom,rgba(203,230,15,0.6),transparent);
   animation:scrollPulse 2s ease-in-out infinite;
 }
 @keyframes scrollPulse{0%,100%{opacity:0.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.2)}}
@@ -359,14 +364,14 @@ section{padding:100px 0;}
 
 .section-tag{
   display:inline-flex;align-items:center;gap:8px;
-  font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;
+  font-family:var(--font-display);font-size:11px;font-weight:600;
   letter-spacing:0.2em;text-transform:uppercase;color:var(--green);
   margin-bottom:16px;
 }
 .section-tag::before{content:'';width:20px;height:1px;background:var(--green);}
 
 h2.section-title{
-  font-family:'Barlow Condensed',sans-serif;
+  font-family:var(--font-display);
   font-size:clamp(36px,4.5vw,58px);
   font-weight:800;line-height:1;letter-spacing:-0.01em;text-transform:uppercase;
   margin-bottom:20px;
@@ -396,20 +401,20 @@ h2.section-title .accent{color:var(--green);}
 .service-card:hover::before{transform:translateY(0);}
 .service-card-inner{position:relative;z-index:1;}
 .service-num{
-  font-family:'Barlow Condensed',sans-serif;font-size:60px;font-weight:900;
+  font-family:var(--font-display);font-size:60px;font-weight:900;
   color:rgba(0,0,0,0.06);line-height:1;margin-bottom:20px;
   transition:color 0.35s;
   user-select:none;
 }
 .service-card:hover .service-num{color:rgba(255,255,255,0.08);}
 .service-icon{
-  width:48px;height:48px;background:rgba(130,209,28,0.1);border-radius:8px;
+  width:48px;height:48px;background:rgba(203,230,15,0.1);border-radius:8px;
   display:flex;align-items:center;justify-content:center;
   margin-bottom:20px;color:var(--green);transition:all 0.35s;
 }
 .service-card:hover .service-icon{background:var(--green);color:var(--navy);}
 .service-card h3{
-  font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;
+  font-family:var(--font-display);font-size:22px;font-weight:700;
   text-transform:uppercase;letter-spacing:0.02em;margin-bottom:12px;
   color:var(--navy);transition:color 0.35s;
 }
@@ -418,7 +423,7 @@ h2.section-title .accent{color:var(--green);}
 .service-card:hover p{color:rgba(255,255,255,0.65);}
 .service-arrow{
   margin-top:28px;display:flex;align-items:center;gap:6px;
-  font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;
+  font-family:var(--font-display);font-size:13px;font-weight:600;
   letter-spacing:0.1em;text-transform:uppercase;
   color:var(--green);transition:gap 0.2s;
 }
@@ -429,7 +434,7 @@ h2.section-title .accent{color:var(--green);}
 #frota::before{
   content:'';position:absolute;top:-200px;right:-200px;
   width:600px;height:600px;border-radius:50%;
-  background:radial-gradient(circle,rgba(130,209,28,0.08),transparent 70%);
+  background:radial-gradient(circle,rgba(203,230,15,0.08),transparent 70%);
   pointer-events:none;
 }
 .fleet-header{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:56px;flex-wrap:wrap;}
@@ -454,12 +459,12 @@ h2.section-title .accent{color:var(--green);}
   display:flex;flex-direction:column;justify-content:flex-end;padding:24px;
 }
 .fleet-card-tag{
-  font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;
+  font-family:var(--font-display);font-size:11px;font-weight:600;
   letter-spacing:0.18em;text-transform:uppercase;color:var(--green);
   margin-bottom:6px;
 }
 .fleet-card h3{
-  font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;
+  font-family:var(--font-display);font-size:20px;font-weight:700;
   text-transform:uppercase;color:white;margin-bottom:6px;
 }
 .fleet-card p{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.5;}
@@ -481,7 +486,7 @@ h2.section-title .accent{color:var(--green);}
 }
 .stats-band-item:last-child{border-right:none;}
 .stats-band-num{
-  font-family:'Barlow Condensed',sans-serif;
+  font-family:var(--font-display);
   font-size:clamp(48px,5vw,72px);font-weight:900;
   color:var(--navy);line-height:1;letter-spacing:-0.02em;
 }
@@ -506,12 +511,12 @@ h2.section-title .accent{color:var(--green);}
 }
 .facility-badge{
   display:inline-flex;align-items:center;gap:8px;
-  background:rgba(130,209,28,0.1);border:1px solid rgba(130,209,28,0.3);
+  background:rgba(203,230,15,0.1);border:1px solid rgba(203,230,15,0.3);
   color:var(--green);font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;
   padding:6px 14px;border-radius:100px;margin-bottom:28px;width:fit-content;
 }
 .facility-info h3{
-  font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;
+  font-family:var(--font-display);font-size:28px;font-weight:800;
   text-transform:uppercase;color:white;margin-bottom:8px;
 }
 .facility-addr{font-size:13px;color:rgba(255,255,255,0.45);margin-bottom:28px;line-height:1.6;}
@@ -523,18 +528,18 @@ h2.section-title .accent{color:var(--green);}
 }
 .spec-label{font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:0.05em;}
 .spec-val{
-  font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;
+  font-family:var(--font-display);font-size:16px;font-weight:700;
   color:var(--green);letter-spacing:0.02em;
 }
 .gallery-btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
   background:var(--green);color:var(--navy);
-  font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;
+  font-family:var(--font-display);font-size:14px;font-weight:700;
   letter-spacing:0.1em;text-transform:uppercase;
   padding:14px 28px;border-radius:6px;border:none;cursor:none;
   transition:all 0.25s;
 }
-.gallery-btn:hover{background:#96e520;box-shadow:0 0 30px rgba(130,209,28,0.3);}
+.gallery-btn:hover{background:#e8f56a;box-shadow:0 0 30px rgba(203,230,15,0.3);}
 
 /* ===================== CLIENTS ===================== */
 #clientes{background:var(--navy);overflow:hidden;}
@@ -555,8 +560,8 @@ h2.section-title .accent{color:var(--green);}
   padding:20px;transition:all 0.3s;
 }
 .client-card:hover{
-  background:rgba(255,255,255,0.08);border-color:rgba(130,209,28,0.3);
-  box-shadow:0 0 30px rgba(130,209,28,0.1);
+  background:rgba(255,255,255,0.08);border-color:rgba(203,230,15,0.3);
+  box-shadow:0 0 30px rgba(203,230,15,0.1);
 }
 .client-card img{max-width:120px;max-height:80px;object-fit:contain;opacity:0.85;transition:opacity 0.3s,transform 0.3s;}
 .client-card:hover img{opacity:1;transform:scale(1.03);}
@@ -573,7 +578,7 @@ h2.section-title .accent{color:var(--green);}
 @media(max-width:900px){.contact-grid{grid-template-columns:1fr;}}
 .contact-form-wrap{background:white;padding:52px 48px;}
 .contact-form-wrap h3{
-  font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:800;
+  font-family:var(--font-display);font-size:26px;font-weight:800;
   text-transform:uppercase;color:var(--navy);margin-bottom:6px;
 }
 .contact-form-wrap p{font-size:14px;color:var(--muted);margin-bottom:36px;}
@@ -582,12 +587,12 @@ h2.section-title .accent{color:var(--green);}
 .field input,.field textarea{
   width:100%;background:#f8f8f6;border:1.5px solid #e5e5e0;
   border-radius:6px;padding:22px 16px 10px;
-  font-family:'Barlow',sans-serif;font-size:14px;color:var(--text);
+  font-family:var(--font-sans);font-size:14px;color:var(--text);
   outline:none;transition:border-color 0.2s,box-shadow 0.2s;
   resize:none;
 }
 .field input:focus,.field textarea:focus{
-  border-color:var(--green);box-shadow:0 0 0 3px rgba(130,209,28,0.12);
+  border-color:var(--green);box-shadow:0 0 0 3px rgba(203,230,15,0.12);
   background:white;
 }
 .field label{
@@ -604,7 +609,7 @@ h2.section-title .accent{color:var(--green);}
 .submit-btn{
   width:100%;display:flex;align-items:center;justify-content:center;gap:8px;
   background:var(--navy);color:white;
-  font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;
+  font-family:var(--font-display);font-size:15px;font-weight:700;
   letter-spacing:0.1em;text-transform:uppercase;
   padding:18px;border-radius:6px;border:none;cursor:none;
   transition:all 0.25s;margin-top:8px;
@@ -614,7 +619,7 @@ h2.section-title .accent{color:var(--green);}
 
 .contact-info-wrap{background:var(--navy);padding:52px 48px;display:flex;flex-direction:column;gap:32px;}
 .contact-brand{
-  font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:800;color:white;
+  font-family:var(--font-display);font-size:22px;font-weight:800;color:white;
 }
 .contact-logo-img{
   display:block;height:40px;width:auto;max-width:200px;object-fit:contain;object-position:left center;
@@ -625,7 +630,7 @@ h2.section-title .accent{color:var(--green);}
 .info-item{display:flex;align-items:flex-start;gap:14px;}
 .info-icon{
   width:38px;height:38px;border-radius:7px;
-  background:rgba(130,209,28,0.1);
+  background:rgba(203,230,15,0.1);
   display:flex;align-items:center;justify-content:center;
   color:var(--green);flex-shrink:0;margin-top:2px;
 }
@@ -636,11 +641,11 @@ h2.section-title .accent{color:var(--green);}
 
 .wa-card{
   display:flex;align-items:center;gap:14px;
-  background:rgba(130,209,28,0.07);border:1px solid rgba(130,209,28,0.2);
+  background:rgba(203,230,15,0.07);border:1px solid rgba(203,230,15,0.2);
   border-radius:8px;padding:18px 20px;
   text-decoration:none;transition:all 0.25s;
 }
-.wa-card:hover{background:rgba(130,209,28,0.12);border-color:rgba(130,209,28,0.4);}
+.wa-card:hover{background:rgba(203,230,15,0.12);border-color:rgba(203,230,15,0.4);}
 .wa-icon{
   width:42px;height:42px;background:var(--green);border-radius:50%;
   display:flex;align-items:center;justify-content:center;
@@ -663,22 +668,22 @@ h2.section-title .accent{color:var(--green);}
 }
 .modal-bg.open .modal-box{transform:scale(1);}
 .modal-icon{
-  width:72px;height:72px;background:rgba(130,209,28,0.1);border-radius:50%;
+  width:72px;height:72px;background:rgba(203,230,15,0.1);border-radius:50%;
   display:flex;align-items:center;justify-content:center;margin:0 auto 20px;
 }
 .modal-box h3{
-  font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;
+  font-family:var(--font-display);font-size:28px;font-weight:800;
   text-transform:uppercase;color:var(--navy);margin-bottom:8px;
 }
 .modal-box p{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:28px;}
 .modal-close-btn{
   background:var(--green);color:var(--navy);
-  font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;
+  font-family:var(--font-display);font-size:14px;font-weight:700;
   letter-spacing:0.1em;text-transform:uppercase;
   padding:14px 36px;border-radius:6px;border:none;cursor:none;
   transition:all 0.2s;
 }
-.modal-close-btn:hover{background:#96e520;}
+.modal-close-btn:hover{background:#e8f56a;}
 
 /* ===================== GALLERY MODAL ===================== */
 .gallery-modal{
@@ -723,7 +728,7 @@ h2.section-title .accent{color:var(--green);}
   border:2px solid transparent;cursor:none;transition:border-color 0.2s;
   flex-shrink:0;
 }
-.gallery-thumb.active{border-color:var(--green);box-shadow:0 0 12px rgba(130,209,28,0.4);}
+.gallery-thumb.active{border-color:var(--green);box-shadow:0 0 12px rgba(203,230,15,0.4);}
 .gallery-thumb img{width:100%;height:100%;object-fit:cover;opacity:0.6;transition:opacity 0.2s;}
 .gallery-thumb.active img,.gallery-thumb:hover img{opacity:1;}
 
@@ -736,7 +741,7 @@ footer{background:#000d1a;padding:32px 0;}
   border-top:1px solid rgba(255,255,255,0.06);padding-top:32px;
 }
 .footer-brand{
-  font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:800;color:white;
+  font-family:var(--font-display);font-size:18px;font-weight:800;color:white;
   display:flex;align-items:center;gap:10px;flex-wrap:wrap;
 }
 .footer-logo-img{
@@ -1222,7 +1227,7 @@ footer{background:#000d1a;padding:32px 0;}
             <p>Prefere WhatsApp?</p>
             <span>Resposta em até 5 minutos</span>
           </div>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(130,209,28,1)" stroke-width="2" style="margin-left:auto"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(203,230,15,1)" stroke-width="2" style="margin-left:auto"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </div>
@@ -1261,7 +1266,7 @@ footer{background:#000d1a;padding:32px 0;}
 <div class="modal-bg" id="successModal">
   <div class="modal-box">
     <div class="modal-icon">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#82D11C" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#cbe60f" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
     </div>
     <h3>Mensagem Enviada!</h3>
     <p>Obrigado pelo contato. Entraremos em contato em breve para dar continuidade ao seu orçamento.</p>
