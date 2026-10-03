@@ -286,14 +286,19 @@ nav.desktop a:hover::after{width:60%;}
   max-width:1280px;margin:0 auto;padding:0 40px;
   width:100%;padding-top:88px;
 }
+.hero-tags{
+  display:flex;flex-direction:column;align-items:flex-start;gap:10px;
+  margin-bottom:28px;
+}
 .hero-tag{
   display:inline-flex;align-items:center;gap:8px;
   font-family:var(--font-display);font-size:12px;font-weight:600;
   letter-spacing:0.2em;text-transform:uppercase;
   color:var(--green);border:1px solid rgba(203,230,15,0.3);
-  padding:6px 14px;border-radius:100px;margin-bottom:28px;
+  padding:6px 14px;border-radius:100px;
   opacity:0;animation:fadeUp 0.8s 0.2s forwards;
 }
+.hero-tag:nth-child(2){animation-delay:0.28s;}
 .hero-tag::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;}
 h1.hero-title{
   font-family:var(--font-display);
@@ -873,7 +878,10 @@ footer{background:#000d1a;padding:32px 0;}
   <div class="hero-overlay"></div>
   <div class="hero-grid"></div>
   <div class="hero-content">
-    <div class="hero-tag">Desde 2022 · Sul & Sudeste</div>
+    <div class="hero-tags">
+      <div class="hero-tag">Desde 2022 · Sul & Sudeste</div>
+      <div class="hero-tag">In God We Trust</div>
+    </div>
     <h1 class="hero-title">
       Logística<br>inteligente para
       <span class="line-green">sua operação</span>
